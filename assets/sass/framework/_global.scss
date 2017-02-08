@@ -1,0 +1,72 @@
+/*
+Theme Name: Xpand
+Theme URI: https://xpandmarketing.co.uk/
+Author: Xpand
+Author URI: https://xpandmarketing.co.uk/
+Description: Template
+Version: 1.0.0
+*/
+
+body {
+	font-family: $regular_body_font;
+	font-size: $base_font;
+	@include font-smoother();
+}
+
+a {
+	
+}
+
+a:hover,
+a:focus {
+	
+}
+
+strong {
+	font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	
+}
+
+/* Common Bootstrap modifications */
+.navbar {
+	@include border-radius(0px);
+}
+
+/* Reusable classes */
+
+.page-title {
+	
+}
+
+.bold-text {
+	
+}
+
+.large-text {
+	
+}
+
+.medium-text {
+	
+}
+
+.small-text {
+	
+}
+
+.upper-text {
+	
+}
+
+.white-text {
+	
+}
+
+.black-text {
+	
+}
+
+

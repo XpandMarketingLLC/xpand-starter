@@ -1,0 +1,41 @@
+@mixin transition-effect($property, $duration, $timing) {
+	-webkit-transition: $property $duration $timing;
+	   -moz-transition: $property $duration $timing;
+		      transition: $property $duration $timing;
+}
+
+@mixin global-shadow($x, $y, $spread, $shadow, $alpha) {
+	-webkit-box-shadow: $x $y $spread rgba($shadow, $alpha);
+	   -moz-box-shadow: $x $y $spread rgba($shadow, $alpha);
+	    -ms-box-shadow: $x $y $spread rgba($shadow, $alpha);
+	     -o-box-shadow: $x $y $spread rgba($shadow, $alpha);
+	        box-shadow: $x $y $spread rgba($shadow, $alpha);
+}
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	   -moz-border-radius: $radius;
+	    -ms-border-radius: $radius;
+	     -o-border-radius: $radius;
+			    border-radius: $radius;
+}
+
+@mixin linear-gradient($from, $to) {
+	background: -webkit-linear-gradient($from, $to); 
+  background: -o-linear-gradient($from, $to); 
+  background: -moz-linear-gradient($from, $to); 
+  background: linear-gradient($from, $to);
+}
+
+@mixin vertical-align-position-absolute($translateY) {
+	-webkit-transform: translateY($translateY);
+	   -moz-transform: translateY($translateY);
+	    -ms-transform: translateY($translateY);
+	     -o-transform: translateY($translateY);
+	        transform: translateY($translateY);
+}
+
+@mixin font-smoother() {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
