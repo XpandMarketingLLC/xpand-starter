@@ -143,7 +143,7 @@ function starter_scripts() {
 add_action( 'wp_enqueue_scripts', 'starter_scripts' );
 
 // Require the additional functionality
-require_once 'functions/mods.php';
+require_once 'functions/loader.php';
 
 // Require the Bootstrap navwalker for Bootstrap menus
 require_once 'wp_bootstrap_navwalker.php';
