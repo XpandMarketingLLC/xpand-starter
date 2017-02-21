@@ -54,7 +54,7 @@ function starter_setup() {
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'starter' ),
 	) );
-
+	
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
