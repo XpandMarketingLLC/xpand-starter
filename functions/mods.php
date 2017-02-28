@@ -2,6 +2,15 @@
 /* 
  * Use this file to create additional modifications to 
  * the theme.
+ * Functions included are:
+ * 1. Disallow File Edits from within WP Admin - this is a security measure
+ * 2. Change the WordPress title placeholder text for custom post types
+ * 3. Add a custom class to the site front page
+ * 4. Remove Emojis - we don't need them!
+ * 5. Remove inline styles for comments - remove this if comments are needed
+ * 6. Remove WordPress Version numbers from source code
+ * 7. Add the active class to custom post type archives
+ * 8. Add custom numeric pagination 
  */
  
 /*
