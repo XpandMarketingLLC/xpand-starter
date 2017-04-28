@@ -145,5 +145,8 @@ add_action( 'wp_enqueue_scripts', 'starter_scripts' );
 // Require the additional functionality
 require_once 'functions/loader.php';
 
+// Require post types: uncomment the line below to use
+// require_once 'post-types/x-post-type.php';
+
 // Require the Bootstrap navwalker for Bootstrap menus
 require_once 'wp_bootstrap_navwalker.php';
