@@ -161,3 +161,11 @@ function xpand_custom_numeric_posts_nav() {
 	echo '</ul>' . "\n";
 
 }
+
+/* 
+ * Add excerpt support to pages
+ */
+add_action( 'init', 'xpand_excerpts_to_pages' );
+function xpand_excerpts_to_pages() {
+     add_post_type_support( 'page', 'excerpt' );
+}
