@@ -169,3 +169,24 @@ add_action( 'init', 'xpand_excerpts_to_pages' );
 function xpand_excerpts_to_pages() {
      add_post_type_support( 'page', 'excerpt' );
 }
+
+
+// Remove comments from admin menu
+add_action( 'admin_init', 'my_remove_admin_menus' );
+function my_remove_admin_menus() {
+    remove_menu_page( 'edit-comments.php' );
+}
+
+
+// Remove items from Dashboard
+function remove_dashboard_meta() {
+  remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'normal' );
+  remove_meta_box( 'dashboard_plugins', 'dashboard', 'normal' );
+  remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
+  remove_meta_box( 'dashboard_secondary', 'dashboard', 'normal' );
+  remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+  remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'side' );
+  remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
+  remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');//since 3.8
+}
+add_action( 'admin_init', 'remove_dashboard_meta' );

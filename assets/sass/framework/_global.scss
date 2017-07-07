@@ -8,7 +8,7 @@ Version: 1.0.0
 */
 
 body {
-	font-family: $regular_body_font;
+	font-family: $regular_font;
 	font-size: $base_font;
 	@include font-smoother();
 }
@@ -33,6 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Common Bootstrap modifications */
 .navbar {
 	@include border-radius(0px);
+	border: none;
 }
 
 /* Reusable classes */
@@ -41,32 +42,25 @@ h1, h2, h3, h4, h5, h6 {
 	
 }
 
-.bold-text {
-	
-}
-
-.large-text {
-	
-}
-
-.medium-text {
-	
-}
-
-.small-text {
-	
-}
-
 .upper-text {
-	
+	text-transform: uppercase;
 }
 
 .white-text {
-	
+	color: #fff;
 }
 
 .black-text {
-	
+	color: $black;
 }
+
+.no-margin-top {
+	margin-top: 0;
+}
+
+.no-margin {
+	margin: 0;
+}
+
 
 
