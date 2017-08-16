@@ -1,5 +1,5 @@
 # xpand-starter
-Set up WordPress and include common plugins etc 
+Default WordPress template  
 
 # todo
 
