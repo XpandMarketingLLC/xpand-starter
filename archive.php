@@ -1,4 +1,8 @@
 <?php
+	
+/* 
+ * The archive page which is the default for category archives etc
+ */
 
 get_header(); 
 
@@ -6,18 +10,16 @@ get_header();
 
 	if ( have_posts() ) : 
 	
-		get_template_part( 'template-parts/partials/content', 'main-column-start' );
-
 		while ( have_posts() ) : the_post();
-
-			get_template_part( 'template-parts/content', get_post_format() );
-
+	
+			get_template_part( 'template-parts/content');
+	
 		endwhile;
 		
-		get_template_part( 'template-parts/partials/content', 'main-column-end' );
-		
-		get_sidebar();
-
+	else :
+	
+		get_template_part( 'template-parts/content', 'none');
+			
 	endif; 
 	
 	get_template_part( 'template-parts/partials/content', 'page-end' );

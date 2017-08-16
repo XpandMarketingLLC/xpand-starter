@@ -9,7 +9,9 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php the_title('<h1>', '</h1>'); ?>
-	<?php the_content(); ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemtype="http://schema.org/Article">
+	<?php get_template_part( 'template-parts/partials/content', 'h2' ); ?>
+	<div itemprop="articleBody">
+		<?php the_content(); ?>
+	</div>
 </article><!-- #post-## -->

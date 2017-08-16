@@ -14,12 +14,12 @@ body {
 }
 
 a {
-	
+	@include transition-effect(color, .3s, ease-in-out);
 }
 
 a:hover,
 a:focus {
-	
+	text-decoration: none;
 }
 
 strong {
@@ -38,19 +38,23 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Reusable classes */
 
-.page-title {
-	
+.h1-title {
+	font-size: 2em;
 }
 
-.upper-text {
+.text-upper {
 	text-transform: uppercase;
 }
 
-.white-text {
+.text-white {
 	color: #fff;
 }
 
-.black-text {
+.text-bold {
+	font-weight: bold;
+}
+
+.text-black {
 	color: $black;
 }
 
@@ -58,9 +62,15 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: 0;
 }
 
+.no-margin-bottom {
+	margin-bottom: 0;
+}
+
 .no-margin {
 	margin: 0;
 }
+
+
 
 
 

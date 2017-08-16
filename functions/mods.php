@@ -122,7 +122,7 @@ function xpand_custom_numeric_posts_nav() {
 	}
 	
 	// Target the following css selectors to style your links
-	echo '<ul class="post-pagination">' . "\n";
+	echo '<ul class="pagination">' . "\n";
 
 	/**	Previous Post Link */
 	if ( get_previous_posts_link() )
@@ -130,7 +130,7 @@ function xpand_custom_numeric_posts_nav() {
 
 	/**	Link to first page, plus ellipses if necessary */
 	if ( ! in_array( 1, $links ) ) {
-		$class = 1 == $paged ? ' class="pagination-active"' : '';
+		$class = 1 == $paged ? ' class="active"' : '';
 
 		printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( 1 ) ), '1' );
 
@@ -141,7 +141,7 @@ function xpand_custom_numeric_posts_nav() {
 	/**	Link to current page, plus 2 pages in either direction if necessary */
 	sort( $links );
 	foreach ( (array) $links as $link ) {
-		$class = $paged == $link ? ' class="pagination-active"' : '';
+		$class = $paged == $link ? ' class="active"' : '';
 		printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $link ) ), $link );
 	}
 
@@ -150,7 +150,7 @@ function xpand_custom_numeric_posts_nav() {
 		if ( ! in_array( $max - 1, $links ) )
 			echo '<li>…</li>' . "\n";
 
-		$class = $paged == $max ? ' class="pagination-active"' : '';
+		$class = $paged == $max ? ' class="active"' : '';
 		printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $max ) ), $max );
 	}
 
@@ -190,3 +190,23 @@ function remove_dashboard_meta() {
   remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');//since 3.8
 }
 add_action( 'admin_init', 'remove_dashboard_meta' );
+
+
+/*
+ * 17. Add custom excerpt length.
+ */
+function custom_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 22 );
+
+
+
+/*
+ * 18. Change default excerpt more link.
+ */
+function new_excerpt_more($more) {
+	global $post;
+	return '...';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
