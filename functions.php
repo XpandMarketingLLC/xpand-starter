@@ -130,6 +130,10 @@ function starter_scripts() {
 	
 	// Deregister wp-embed (not needed)
 	wp_deregister_script( 'wp-embed' );
+	
+	// Register bootstrap js files.
+	wp_register_script('popper', TEMPLATE . '/assets/js/popper.min.js', array(), null, true);
+	wp_enqueue_script('popper');
 		
 	// Register bootstrap js files.
 	wp_register_script('bootstrap-script', TEMPLATE . '/assets/js/bootstrap.min.js', array('jquery'), 'v4.0.0-beta', true);
@@ -148,5 +152,8 @@ require_once 'functions/loader.php';
 // Require post types: uncomment the line below to use
 // require_once 'post-types/x-post-type.php';
 
-// Require the Bootstrap navwalker for Bootstrap menus
-require_once 'wp_bootstrap_navwalker.php';
+// Require the Bootstrap 3 navwalker for Bootstrap menus
+// require_once 'wp_bootstrap_navwalker.php';
+
+// Require the Bootstrap 4 navwalker for Bootstrap menus
+require_once 'bs4navwalker.php';
