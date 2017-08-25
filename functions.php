@@ -123,7 +123,7 @@ function starter_scripts() {
 	wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 8' );
 	
 	// load bootstrap css
-	wp_enqueue_style( 'bootstrap', TEMPLATE . '/assets/css/bootstrap.min.css', array(), NULL );
+	wp_enqueue_style( 'bootstrap', TEMPLATE . '/assets/css/bootstrap.min.css', array(), 'v4.0.0-beta' );
 	
 	// load the main style sheet
 	wp_enqueue_style( 'starter-style', get_stylesheet_uri() );	
@@ -132,7 +132,7 @@ function starter_scripts() {
 	wp_deregister_script( 'wp-embed' );
 		
 	// Register bootstrap js files.
-	wp_register_script('bootstrap-script', TEMPLATE . '/assets/js/bootstrap.min.js', array('jquery'), '3.3.5', true);
+	wp_register_script('bootstrap-script', TEMPLATE . '/assets/js/bootstrap.min.js', array('jquery'), 'v4.0.0-beta', true);
 	wp_enqueue_script('bootstrap-script');
 	
 	// Register a custom js file
