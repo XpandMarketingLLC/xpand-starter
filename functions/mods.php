@@ -210,3 +210,32 @@ function new_excerpt_more($more) {
 	return '...';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
+
+
+/* 
+ * Utility functions
+ */
+ 
+// Strip white space from text, i.e phone number
+function stripSpaces($string) {
+	$string = str_replace(' ', '', $string);
+	return $string;
+}
+
+// Strip hyphens from a string
+function stripHyphens($string) {
+	$string = str_replace('-', '', $string);
+	return $string;
+}
+
+// Convert a string into a format suitable for an ID
+// i.e My Post Title becomes my-post-title
+function covertToId($string) {
+	$string = strtolower($string);
+	$string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+	$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+	
+	return preg_replace('/-+/', '-', $string); // Replaces multiple hyphens with single one.
+}
+
+
