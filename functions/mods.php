@@ -11,6 +11,14 @@
  * 6. Remove WordPress Version numbers from source code
  * 7. Add the active class to custom post type archives
  * 8. Add custom numeric pagination 
+ * 9. Add excerpt support to pages
+ * 10. Remove comments from admin menu
+ * 11. Remove dashboard items
+ * 12. Custom excerpt length 
+ * 13. Custom excerpt text
+ * 14. Strip spaces from strings
+ * 15. Strip hyphens from strings
+ * 16. Convert a string to an id format i.e my-title-as-id
  */
  
 /*
