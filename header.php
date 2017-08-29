@@ -4,6 +4,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	 <!--[if IE]>
+      <link href="/css/bootstrap-ie8.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/g/html5shiv@3.7.3,respond@1.4.2"></script>
+    <![endif]-->
 	<!--[if lt IE 9]>
 	<div class="old-browser-container">
 		<div class="old-browser-message">
