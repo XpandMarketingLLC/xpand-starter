@@ -136,7 +136,7 @@ function starter_scripts() {
 	wp_enqueue_script('popper');
 		
 	// Register bootstrap js files.
-	wp_register_script('bootstrap-script', TEMPLATE . '/assets/js/bootstrap.min.js', array('jquery'), 'v4.0.0-beta', true);
+	wp_register_script('bootstrap-script', TEMPLATE . '/assets/js/bootstrap.min.js', array('jquery'), '4.0.0-alpha', true);
 	wp_enqueue_script('bootstrap-script');
 	
 	// Register a custom js file
