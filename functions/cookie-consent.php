@@ -23,6 +23,9 @@ add_action('wp_enqueue_scripts', 'load_cookie_scripts');
 add_action('wp_head', 'add_cookie_consent');
 function add_cookie_consent() { ?>
 <script>
+	var url = window.location.host;
+	var proto = window.location.protocol;
+// 	console.log(proto + "//" + url + "/cookie-policy");
 window.addEventListener("load", function(){
 window.cookieconsent.initialise({
   "palette": {
@@ -37,9 +40,8 @@ window.cookieconsent.initialise({
   },
   "theme": "edgeless",
   "content": {
-    "href": "link-to-your-cookie-conset-page-here"
+    "href": proto + "//" + url + "/cookie-policy"
   }
 })});
 </script>
 <?php }
-
