@@ -256,6 +256,27 @@ function convertStringToArray($string, $break, $tags = null) {
 }
 
 
-	
+/* 
+ * Add ACF options page
+ */
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page('Global Settings');
+
+}	
 
 
+// Deregister Contact Form 7 styles on pages where not needed
+add_action( 'wp_print_styles', 'xpand_deregister_styles', 100 );
+function xpand_deregister_styles() {
+    if ( ! is_page( array(/* pages go here */) ) ) {
+        wp_deregister_style( 'contact-form-7' );
+    }
+}
+// Deregister Contact Form 7 JavaScript files on all pages without a form
+add_action( 'wp_print_scripts', 'xpand_deregister_javascript', 100 );
+function xpand_deregister_javascript() {
+    if ( ! is_page( array(/* pages go here */) ) ) {
+        wp_deregister_script( 'contact-form-7' );
+    }
+}
