@@ -246,4 +246,16 @@ function covertToId($string) {
 	return preg_replace('/-+/', '-', $string); // Replaces multiple hyphens with single one.
 }
 
+// Convert a string to an array, breaking at each new line or <br /> tag
+function convertStringToArray($string, $break, $tags = null) {
+	$array = explode($break, $string);
+	
+	foreach($array as $key => $value) {
+		echo '<' . $tags . '>' . $value . '</' . $tags . '>';
+	} 
+}
+
+
+	
+
 
