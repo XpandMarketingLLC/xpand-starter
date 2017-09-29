@@ -139,6 +139,13 @@ function starter_scripts() {
 	wp_register_script('bootstrap-script', TEMPLATE . '/assets/js/bootstrap.min.js', array('jquery'), 'v4.0.0-beta', true);
 	wp_enqueue_script('bootstrap-script');
 	
+	
+	// if is contact page, load google maps api
+	if(is_page('contact')) : 
+		wp_register_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=API_KEY_HERE', array('jquery'), NULL, true);
+		wp_enqueue_script('google-maps');
+	endif;
+	
 	// Register a custom js file
 	wp_register_script('main', TEMPLATE . '/assets/js/main.js', array('jquery'), null, true);
 	wp_enqueue_script('main');

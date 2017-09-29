@@ -4,6 +4,7 @@
  */
 ?>
 
-<div class="page-wrap">
+<div id="innerPage">
+	<div class="container">		
 			
 		
