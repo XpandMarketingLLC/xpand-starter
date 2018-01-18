@@ -7,8 +7,6 @@
  * @package starter
  */
 
-<?php
-
 get_header(); 
 
 	get_template_part( 'template-parts/partials/content', 'page-start' );

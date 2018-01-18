@@ -15,11 +15,18 @@ body {
 
 a {
 	@include transition-effect(color, .3s, ease-in-out);
+	img {
+		@include transition-effect(opacity, .3s, ease-in-out);
+	}
 }
 
 a:hover,
 a:focus {
 	text-decoration: none;
+	img {
+		opacity: 0.7;
+		filter: alpha(opacity=70);
+	}
 }
 
 strong {
@@ -27,7 +34,7 @@ strong {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	
+	font-family: $display_font;
 }
 
 /* Common Bootstrap modifications */
@@ -39,12 +46,12 @@ h1, h2, h3, h4, h5, h6 {
 /* Change the RGBA values to get the colour you want */
 .navbar-light {
 	.navbar-toggler-icon {
-		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(4,84,164, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); 
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(4,84,164, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); 
+	}
 }
 
-}
+
 /* Reusable classes */
-
 .text-white {
 	color: #fff;
 }
@@ -55,9 +62,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .acf-map {
 	width: 100%;
-}
-
-/* fixes potential theme css conflict */
-.acf-map img {
-   max-width: inherit !important;
+	height: 400px;
+		img {
+	   max-width: inherit !important;
+	}
 }
