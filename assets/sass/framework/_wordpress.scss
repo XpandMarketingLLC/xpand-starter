@@ -8,31 +8,20 @@
  */
 .entry-content img {
 	margin: 0 0 1.5em 0;
-	}
-.alignleft, img.alignleft {
-	margin-right: 1.5em;
-	display: inline;
-	float: left;
-	}
-.alignright, img.alignright {
-	margin-left: 1.5em;
-	display: inline;
-	float: right;
-	}
-.aligncenter, img.aligncenter {
-	margin-right: auto;
-	margin-left: auto;
-	display: block;
-	clear: both;
-	}
+}
+.alignleft, img.alignleft, 
+.alignright, img.alignright, 
+.aligncenter, img.aligncenter, 
 .alignnone, img.alignnone {
-	// style as needed
+	margin-right: 1em auto;
+	display: block;
+	float: none;
 	}
 .wp-caption {
 	margin-bottom: 1.5em;
 	text-align: center;
 	padding-top: 5px;
-	}
+}
 .wp-caption {
 	img {
 		border: 0 none;

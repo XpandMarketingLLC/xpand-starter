@@ -6,7 +6,7 @@
 
 get_header(); 
 
-	get_template_part( 'template-parts/partials/content', 'page-start' );
+	get_template_part( 'template-parts/partials/content', 'banner' );
 
 	if ( have_posts() ) : 
 	
@@ -21,7 +21,5 @@ get_header();
 		get_template_part( 'template-parts/content', 'none');
 			
 	endif; 
-	
-	get_template_part( 'template-parts/partials/content', 'page-end' );
-		
+			
 get_footer();

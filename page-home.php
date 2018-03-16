@@ -4,15 +4,14 @@
 	 */
 	 
 get_header(); 
+	
+	get_template_part( 'template-parts/partials/content', 'banner' );
 
-	get_template_part( 'template-parts/partials/content', 'page-start' );
+	while ( have_posts() ) : the_post();
 
-		while ( have_posts() ) : the_post();
+		get_template_part( 'template-parts/content', 'home' );
 
-			get_template_part( 'template-parts/content', 'home' );
-
-		endwhile;
+	endwhile;
 		
-	get_template_part( 'template-parts/partials/content', 'page-end' );
 		
 get_footer();
