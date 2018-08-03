@@ -33,7 +33,7 @@ function starter_setup() {
 	load_theme_textdomain( 'starter', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+	//add_theme_support( 'automatic-feed-links' );
 
 	/*
 	 * Let WordPress manage the document title.
@@ -53,6 +53,7 @@ function starter_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'starter' ),
+		'menu-2' => esc_html__( 'Footer', 'starter' ),
 	) );
 	
 	/*
@@ -123,7 +124,7 @@ function starter_scripts() {
 	wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 8' );
 	
 	// load bootstrap css
-	wp_enqueue_style( 'bootstrap', TEMPLATE . '/assets/css/bootstrap.min.css', array(), 'v4.0.0-beta' );
+	wp_enqueue_style( 'bootstrap', TEMPLATE . '/assets/css/bootstrap.min.css', array(), '4.1.3' );
 	
 	// load the main style sheet
 	wp_enqueue_style( 'starter-style', get_stylesheet_uri() );	
@@ -136,7 +137,7 @@ function starter_scripts() {
 	wp_enqueue_script('popper');
 		
 	// Register bootstrap js files.
-	wp_register_script('bootstrap-script', TEMPLATE . '/assets/js/bootstrap.min.js', array('jquery'), 'v4.0.0-beta', true);
+	wp_register_script('bootstrap-script', TEMPLATE . '/assets/js/bootstrap.min.js', array('jquery'), '4.1.3', true);
 	wp_enqueue_script('bootstrap-script');
 	
 	

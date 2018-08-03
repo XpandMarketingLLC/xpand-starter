@@ -1,8 +1,7 @@
 <?php
 	/* 
 	 * Template Name: Home
-	 */
-	 
+	 */	 
 get_header(); 
 	
 	get_template_part( 'template-parts/partials/content', 'banner' );
@@ -12,6 +11,5 @@ get_header();
 		get_template_part( 'template-parts/content', 'home' );
 
 	endwhile;
-		
 		
 get_footer();

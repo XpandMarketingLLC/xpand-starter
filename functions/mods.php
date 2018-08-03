@@ -3,31 +3,38 @@
  * Use this file to create additional modifications to 
  * the theme.
  * Functions included are:
- * 1. Disallow File Edits from within WP Admin - this is a security measure
- * 2. Change the WordPress title placeholder text for custom post types
- * 3. Add a custom class to the site front page
+ * 1. Prevent file edits from WP admin area for extra security
+ * 2. Change the WordPress title placeholder text for custom post types i.e. Enter title => Enter Name => Enter Job
+ * 3. Add a custom class to the site front page (useful for styling elements on the home differently to inner pages)
  * 4. Remove Emojis - we don't need them!
  * 5. Remove inline styles for comments - remove this if comments are needed
  * 6. Remove WordPress Version numbers from source code
  * 7. Add the active class to custom post type archives
  * 8. Add custom numeric pagination 
- * 9. Add excerpt support to pages
- * 10. Remove comments from admin menu
- * 11. Remove dashboard items
- * 12. Custom excerpt length 
- * 13. Custom excerpt text
- * 14. Strip spaces from strings
- * 15. Strip hyphens from strings
- * 16. Convert a string to an id format i.e my-title-as-id
+ * 9. Add page-link class to WordPress next and previous links for BS4 pagination
+ * 10. Add excerpt support to pages
+ * 11. Remove comments from admin menu
+ * 12. Remove dashboard items
+ * 13. Custom excerpt length 
+ * 14. Custom excerpt text
+ * 15. Strip spaces from strings
+ * 16. Strip hyphens from strings
+ * 17. Convert a string to an id format i.e my-title-as-id
+ * 18. Convert a string to an array, breaking at each new line or <br /> tag
+ * 19. Add ACF options page (for ACF Pro)
+ * 20. Deregister Contact Form 7 styles on pages where not needed
+ * 21. Deregister Contact Form 7 JavaScript on pages where not needed
+ * 22. Remove query strings from static resources (replaces no.6)
+ * 23. Make medium images absolutely cropped (useful when creating blogs/case studies that need set image sizes)
  */
  
 /*
- * Prevent file edits from WP admin area for extra security 
+ * 1. Prevent file edits from WP admin area for extra security 
  */
 define('DISALLOW_FILE_EDIT', true);
 
 /*
- * Filter the title for a given post type
+ * 2. Filter the title for a given post type
  */
 function xpand_change_default_title( $title ){
     $screen = get_current_screen();
@@ -40,7 +47,7 @@ function xpand_change_default_title( $title ){
 // add_filter( 'enter_title_here', 'xpand_change_default_title' );
 
 /*
- * Add a custom body class to the front page.
+ * 3. Add a custom body class to the front page.
  * Can be useful for adding styles that only 
  * appear on the front page
  */
@@ -52,7 +59,7 @@ function my_body_class( $classes ) {
 }
 
 /*
- * Remove emojis supplied by default from WordPres
+ * 4. Remove emojis supplied by default from WordPres
  */
 remove_action( 'admin_print_styles', 'print_emoji_styles' );
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
@@ -63,7 +70,7 @@ remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
 remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
 
 /*
- * Remove inline styles for comments
+ * 5. Remove inline styles for comments
  */
 function xpand_remove_recent_comments_style() {
         global $wp_widget_factory;
@@ -72,7 +79,7 @@ function xpand_remove_recent_comments_style() {
 add_action( 'widgets_init', 'xpand_remove_recent_comments_style' );
 
 /*
- * Remove WordPress version number
+ * 6. Remove WordPress version number
  * Mainly to make it harder for hackers to find 
  * vulnerabilities based on WP version
  */
@@ -89,7 +96,7 @@ add_filter( 'style_loader_src', 'xpand_remove_wp_version_strings' );
 remove_action('wp_head', 'wp_generator');
 
 /*
- * Add an active class to custom post types
+ * 7. Add an active class to custom post types
  * So custom post types get the Bootstrap active class
  */
 function xpand_custom_active_item_classes($classes = array(), $menu_item = false){            
@@ -99,7 +106,9 @@ function xpand_custom_active_item_classes($classes = array(), $menu_item = false
     }
 add_filter( 'nav_menu_css_class', 'xpand_custom_active_item_classes', 10, 2 );
 
-// Create pagination links instead of standard next/previous posts links
+/* 
+ * 8. Create pagination links instead of standard next/previous posts links
+ */
 function xpand_custom_numeric_posts_nav() {
 
 	if( is_singular() )
@@ -170,7 +179,9 @@ function xpand_custom_numeric_posts_nav() {
 
 }
 
-// Add page-link class to WordPress next and previous links for BS4 pagination
+/* 
+ * 9. Add page-link class to WordPress next and previous links for BS4 pagination
+ */
 add_filter('next_posts_link_attributes', 'posts_link_attributes');
 add_filter('previous_posts_link_attributes', 'posts_link_attributes');
 
@@ -179,7 +190,7 @@ function posts_link_attributes() {
 }
 
 /* 
- * Add excerpt support to pages
+ * 10. Add excerpt support to pages
  */
 add_action( 'init', 'xpand_excerpts_to_pages' );
 function xpand_excerpts_to_pages() {
@@ -187,14 +198,18 @@ function xpand_excerpts_to_pages() {
 }
 
 
-// Remove comments from admin menu
+/*
+ * 11.  Remove comments from admin menu
+ */
 add_action( 'admin_init', 'my_remove_admin_menus' );
 function my_remove_admin_menus() {
     remove_menu_page( 'edit-comments.php' );
 }
 
 
-// Remove items from Dashboard
+/*
+ * 12. Remove items from Dashboard
+ */ 
 function remove_dashboard_meta() {
   remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'normal' );
   remove_meta_box( 'dashboard_plugins', 'dashboard', 'normal' );
@@ -209,7 +224,7 @@ add_action( 'admin_init', 'remove_dashboard_meta' );
 
 
 /*
- * 17. Add custom excerpt length.
+ * 13. Add custom excerpt length.
  */
 function custom_excerpt_length( $length ) {
 	return 20;
@@ -219,7 +234,7 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 22 );
 
 
 /*
- * 18. Change default excerpt more link.
+ * 14. Change default excerpt more link.
  */
 function new_excerpt_more($more) {
 	global $post;
@@ -232,19 +247,19 @@ add_filter('excerpt_more', 'new_excerpt_more');
  * Utility functions
  */
  
-// Strip white space from text, i.e phone number
+// 15. Strip white space from text, i.e phone number
 function stripSpaces($string) {
 	$string = str_replace(' ', '', $string);
 	return $string;
 }
 
-// Strip hyphens from a string
+// 16. Strip hyphens from a string
 function stripHyphens($string) {
 	$string = str_replace('-', '', $string);
 	return $string;
 }
 
-// Convert a string into a format suitable for an ID
+// 17. Convert a string into a format suitable for an ID
 // i.e My Post Title becomes my-post-title
 function covertToId($string) {
 	$string = strtolower($string);
@@ -254,7 +269,7 @@ function covertToId($string) {
 	return preg_replace('/-+/', '-', $string); // Replaces multiple hyphens with single one.
 }
 
-// Convert a string to an array, breaking at each new line or <br /> tag
+// 18. Convert a string to an array, breaking at each new line or <br /> tag
 function convertStringToArray($string, $break, $tags = null) {
 	$array = explode($break, $string);
 	
@@ -265,7 +280,7 @@ function convertStringToArray($string, $break, $tags = null) {
 
 
 /* 
- * Add ACF options page
+ * 19. Add ACF options page
  */
 if( function_exists('acf_add_options_page') ) {
 
@@ -274,14 +289,14 @@ if( function_exists('acf_add_options_page') ) {
 }	
 
 
-// Deregister Contact Form 7 styles on pages where not needed
+// 20. Deregister Contact Form 7 styles on pages where not needed
 add_action( 'wp_print_styles', 'xpand_deregister_styles', 100 );
 function xpand_deregister_styles() {
     if ( ! is_page( array(/* pages go here */) ) ) {
         wp_deregister_style( 'contact-form-7' );
     }
 }
-// Deregister Contact Form 7 JavaScript files on all pages without a form
+// 21. Deregister Contact Form 7 JavaScript files on all pages without a form
 add_action( 'wp_print_scripts', 'xpand_deregister_javascript', 100 );
 function xpand_deregister_javascript() {
     if ( ! is_page( array(/* pages go here */) ) ) {
@@ -289,10 +304,15 @@ function xpand_deregister_javascript() {
     }
 }
 
-// Remove query strings from static resources
+// 22. Remove query strings from static resources
 function _remove_script_version( $src ){
     $parts = explode( '?ver', $src );
         return $parts[0];
 }
 add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
 add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
+
+// 23. Make medium images absolutely cropped
+if( function_exists( 'add_image_size' ) ) {
+	add_image_size( 'medium', 350, 295, true );
+}

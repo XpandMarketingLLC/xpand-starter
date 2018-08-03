@@ -6,32 +6,11 @@
  * sit well on the page. Don't forget that these will
  * also need mobile styling. 
  */
-.entry-content img {
-	margin: 0 0 1.5em 0;
-}
 .alignleft, img.alignleft, 
 .alignright, img.alignright, 
 .aligncenter, img.aligncenter, 
 .alignnone, img.alignnone {
-	margin-right: 1em;
+	margin: 1em;
 	display: block;
 	float: none;
-	}
-.wp-caption {
-	margin-bottom: 1.5em;
-	text-align: center;
-	padding-top: 5px;
 }
-.wp-caption {
-	img {
-		border: 0 none;
-		padding: 0;
-		margin: 0;
-	}
-	p.wp-caption-text {
-		line-height: 1.5;
-		font-size: 10px;
-		margin: 0;
-	}
-}
-

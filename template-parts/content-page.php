@@ -1,17 +1,2 @@
-<?php
-/**
- * Template part for displaying page content in page.php
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package starter
- */
-
-?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemtype="http://schema.org/Article">
-	<?php get_template_part( 'template-parts/partials/content', 'h1' ); ?>
-	<div itemprop="articleBody">
-		<?php the_content(); ?>
-	</div>
-</article><!-- #post-## -->
+<?php get_template_part( 'template-parts/partials/content', 'h1' ); ?>
+<?php the_content(); ?>

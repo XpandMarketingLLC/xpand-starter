@@ -8,7 +8,7 @@
  * reduce HTTP requests 
  */
 
-add_action('wp_head', 'add_cookie_consent');
+add_action('wp_footer', 'add_cookie_consent');
 function add_cookie_consent() { ?>
 <script>
 	var url = window.location.host;
