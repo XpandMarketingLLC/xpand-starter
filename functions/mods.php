@@ -26,6 +26,7 @@
  * 21. Deregister Contact Form 7 JavaScript on pages where not needed
  * 22. Remove query strings from static resources (replaces no.6)
  * 23. Make medium images absolutely cropped (useful when creating blogs/case studies that need set image sizes)
+ * 24. Function to create a custom H1 title for taxonomies - Depends on ACF plugin 
  */
  
 /*
@@ -316,3 +317,17 @@ add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
 if( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'medium', 350, 295, true );
 }
+
+// 24. Create a function to display a custom title for 
+//     category archives - saves finding the code every time
+// NOTE: Depends on having the ACF plugin installed!!!!!
+function alt_title_for_taxonomies($field_name) {
+	$term = get_queried_object();
+	$taxonomy = $term->taxonomy;
+	$term_id = $term->term_id; 			
+	
+	return get_field($field_name, $term);
+}
+//Use like so: 
+//$h1_title = alt_title_for_taxonomies('h1_title');
+// if($h1_title) ... etc 
